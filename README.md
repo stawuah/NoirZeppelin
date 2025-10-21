@@ -2,9 +2,8 @@
 
 > The OpenZeppelin of Privacy: Battle-tested zero-knowledge patterns for Noir
 
-[![CI](https://github.com/noirzeppelin/noirzeppelin/workflows/CI/badge.svg)](https://github.com/noirzeppelin/noirzeppelin/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Noir](https://img.shields.io/badge/Noir-0.25.0+-purple.svg)](https://noir-lang.org/)
+[![Noir](https://img.shields.io/badge/Noir-1.0.0-beta.13+-purple.svg)](https://noir-lang.org/)
 
 NoirZeppelin is a comprehensive, production-ready privacy library for the Noir programming language that ports battle-tested OpenZeppelin contract patterns into zero-knowledge circuits. Build privacy-preserving applications for both Web2 and Web3 without deep cryptographic expertise.
 
@@ -98,13 +97,6 @@ MIT License - see [LICENSE](./LICENSE) for details.
 Inspired by [OpenZeppelin](https://openzeppelin.com/) - the gold standard for smart contract security.
 
 Built with [Noir](https://noir-lang.org/) - the universal ZK language.
-
-## 📞 Support
-
-- **Documentation:** [docs.noirzeppelin.com](https://docs.noirzeppelin.com)
-- **Discord:** [Join our community](https://discord.gg/noirzeppelin)
-- **Twitter:** [@noirzeppelin](https://twitter.com/noirzeppelin)
-- **Email:** team@noirzeppelin.com
 
 ---
 
