@@ -3,7 +3,7 @@
 > The OpenZeppelin of Privacy: Battle-tested zero-knowledge patterns for Noir
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Noir](https://img.shields.io/badge/Noir-1.0.0-beta.13+-purple.svg)](https://noir-lang.org/)
+[![Noir](https://img.shields.io/badge/Noir-1.0.0--beta.12-purple.svg)](https://noir-lang.org/)
 
 NoirZeppelin is a comprehensive, production-ready privacy library for the Noir programming language that ports battle-tested OpenZeppelin contract patterns into zero-knowledge circuits. Build privacy-preserving applications for both Web2 and Web3 without deep cryptographic expertise.
 
