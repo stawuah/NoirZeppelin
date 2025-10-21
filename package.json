@@ -1,0 +1,55 @@
+{
+  "name": "noirzeppelin",
+  "version": "0.1.0",
+  "description": "The OpenZeppelin of Privacy: Battle-tested zero-knowledge patterns for Noir",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "sdk",
+    "tools/cli"
+  ],
+  "scripts": {
+    "build": "npm run build:circuits && npm run build:contracts && npm run build:sdk",
+    "build:circuits": "./scripts/build-all.sh",
+    "build:contracts": "cd contracts && forge build",
+    "build:sdk": "cd sdk && npm run build",
+    "test": "npm run test:circuits && npm run test:contracts && npm run test:sdk",
+    "test:circuits": "./scripts/test-all.sh",
+    "test:contracts": "cd contracts && forge test",
+    "test:sdk": "cd sdk && npm test",
+    "lint": "npm run lint:contracts && npm run lint:sdk",
+    "lint:contracts": "cd contracts && forge fmt --check",
+    "lint:sdk": "cd sdk && npm run lint",
+    "format": "npm run format:contracts && npm run format:sdk",
+    "format:contracts": "cd contracts && forge fmt",
+    "format:sdk": "cd sdk && npm run format",
+    "docs": "cd docs && mdbook serve",
+    "benchmark": "node tools/benchmarks/proof-generation.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noirzeppelin/noirzeppelin.git"
+  },
+  "keywords": [
+    "noir",
+    "zero-knowledge",
+    "zk-snarks",
+    "privacy",
+    "cryptography",
+    "blockchain",
+    "web3",
+    "openzeppelin"
+  ],
+  "author": "Noir Contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noirzeppelin/noirzeppelin/issues"
+  },
+  "homepage": "https://github.com/noirzeppelin/noirzeppelin#readme",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  }
+}

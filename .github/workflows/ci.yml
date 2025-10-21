@@ -1,0 +1,116 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test-circuits:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install Noir
+        run: |
+          curl -L https://raw.githubusercontent.com/noir-lang/noirup/main/install | bash
+          noirup
+      
+      - name: Test Authentication Module
+        run: |
+          cd circuits/authentication
+          nargo test
+      
+      - name: Test Access Control Module
+        run: |
+          cd circuits/access_control
+          nargo test
+      
+      - name: Test Token Module
+        run: |
+          cd circuits/token
+          nargo test
+      
+      - name: Test Voting Module
+        run: |
+          cd circuits/voting
+          nargo test
+      
+      - name: Test Merkle Module
+        run: |
+          cd circuits/merkle
+          nargo test
+
+  test-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+      
+      - name: Run Foundry Tests
+        run: |
+          cd contracts
+          forge test -vvv
+      
+      - name: Check Gas Snapshots
+        run: |
+          cd contracts
+          forge snapshot --check
+
+  test-sdk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install Dependencies
+        run: |
+          cd sdk
+          npm ci
+      
+      - name: Run Tests
+        run: |
+          cd sdk
+          npm test
+      
+      - name: Check Types
+        run: |
+          cd sdk
+          npm run type-check
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Lint Solidity
+        run: |
+          cd contracts
+          forge fmt --check
+      
+      - name: Lint TypeScript
+        run: |
+          cd sdk
+          npm run lint
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run Slither
+        run: |
+          cd contracts
+          slither .
+      
+      - name: Check Dependencies
+        run: |
+          cd sdk
+          npm audit
